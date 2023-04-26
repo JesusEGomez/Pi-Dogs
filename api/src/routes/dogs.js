@@ -21,12 +21,12 @@ dogsRouter.get("/:id", async(req,res)=>{
 dogsRouter.get("/", async(req,res)=>{
     const {name} = req.query
     try {
-        const dogs = await getAllDogs()
-        const dog = await getDogByName(name)
         if(name){ 
+            const dog = await getDogByName(name)
             res.status(200).json(dog)
         }
         else{
+            const dogs = await getAllDogs()
             res.status(200).json(dogs)
         }
     } catch (error) {
@@ -38,10 +38,10 @@ dogsRouter.get("/", async(req,res)=>{
 })
 
 dogsRouter.post("/", async(req,res)=>{
-    const {image,name, height,weight,life_span} = req.body
+    const {image,name, height,weight,life_span,temperament} = req.body
     console.log(name)
     try {
-        const newDog = await createDog(image,name,height,weight,life_span) 
+        const newDog = await createDog(image,name,height,weight,life_span,temperament) 
         res.status(201).json(newDog)
     } catch (error) {
         res.status(400).json({error:error.message})
