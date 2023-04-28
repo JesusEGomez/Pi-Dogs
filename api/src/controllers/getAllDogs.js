@@ -15,11 +15,20 @@ const getAllDogs = async()=>{
         },
     
     })
-    console.log(dbDogs)
     const allDogs = [...dbDogs,...apiDogs.data]
     const razas = []
     allDogs.forEach(element => {
-        razas.push({name:element.name,Temperament:element.temperaments})
+        if(element.hasOwnProperty("temperaments")){
+            const {name,id,temperaments,image,life_span,height,weight} = element
+            const temperament = []
+            temperaments.forEach((item)=>{
+                temperament.push(item.name)
+            })
+
+            razas.push({name,id,temperament:temperament.toString(),image,life_span,height,weight})
+            
+        }else razas.push(element)
+        
     });
     return razas
 

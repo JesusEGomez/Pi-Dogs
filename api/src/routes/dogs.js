@@ -39,7 +39,6 @@ dogsRouter.get("/", async(req,res)=>{
 
 dogsRouter.post("/", async(req,res)=>{
     const {image,name, height,weight,life_span,temperament} = req.body
-    console.log(name)
     try {
         const newDog = await createDog(image,name,height,weight,life_span,temperament) 
         res.status(201).json(newDog)
