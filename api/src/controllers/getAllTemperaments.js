@@ -28,7 +28,7 @@ const getAllTemperaments = async ()=>{
     return array.findIndex((elemento)=> elemento.name === item.name) === index
     })
 
-    if(dbTemperament.length !== 0 && dbTemperament.length === finalArray.length ) return dbTemperament
+    if(dbTemperament.length !== 0  ) return dbTemperament
     else{
     const dbTemperaments = await Temperament.bulkCreate(finalArray)
     return dbTemperaments

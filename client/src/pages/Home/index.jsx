@@ -6,12 +6,9 @@ import { getDogs } from "../../Redux/actions"
 import { Cards } from "../../components"
 import PaginationControls from "../../components/PaginationControls"
 const Home = ()=>{
-
     const dispatch = useDispatch()
     useEffect(()=>{
-        if(dogs.length === 0){
-            return dispatch(getDogs())
-        }
+        dispatch(getDogs())
     },[])
     const state = useSelector(state=>state)
     const {dogs,currentPage, itemsPerPage} = state
@@ -21,10 +18,7 @@ const Home = ()=>{
     return(
         <div>
             <h1>Esto es el home</h1>
-            <Cards  
-            dogs={dogs} 
-            currentPage={currentPage} 
-            itemsPerPage={itemsPerPage}/>
+            {dogs.length? <Cards dogs={dogs}currentPage={currentPage}itemsPerPage={itemsPerPage}/>:null}
             <PaginationControls arrayLength={arrayLength} />
         </div>
     )
