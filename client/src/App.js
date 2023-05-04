@@ -6,18 +6,26 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 
+
 function App() {
   const history = useHistory()
 
   const onSearch = async (name)=>{
     if(!name) return alert("Debes escribir un nombre")
-    const dogFound = await axios.get(`http://localhost:3001/dogs/?name=${name}`)
-    if(!dogFound) return alert("El perro no existe")
-    const dog = dogFound.data
+    try {
+      const dogFound = await axios.get(`http://localhost:3001/dogs/?name=${name}`)
+      const dog = dogFound.data
+      history.push(`/detail/${dog.id}`)
+    } catch (error) {
+      alert("el perro no existe")
+      console.error(error.message)
+        
+    }
     
-    history.push(`/detail/${dog.id}`)
-
   }
+  const clickHandler =(id)=>{
+    history.push(`/detail/${id}`)
+}
   
   const location = useLocation()
   return (
@@ -25,7 +33,7 @@ function App() {
 
         {location.pathname !== "/" && <Nav onSearch={onSearch}/>}
         <Route exact path="/" render={()=><LandingPage/>} />
-        <Route exact path="/home" render={()=><Home />} />
+        <Route exact path="/home" render={()=><Home clickHandler={clickHandler} />} />
         <Route exact path="/form" render={()=><Form/>} />
         <Route path="/detail/:id" render={()=><Detail/>} />
 

@@ -2,11 +2,13 @@ import "./index.css"
 import axios from "axios"
 import { useState,useEffect } from "react"
 import Validation from "../../validation"
+import { getTemperaments } from "../../Redux/actions"
+import { useDispatch,useSelector } from "react-redux"
 
 
 const Form = ()=>{
+    const dispatch = useDispatch()
     const [errors,setErrors]=useState({})
-    const [temperaments,setTemperaments]=useState([])
     const [dogData,setDogData] = useState({
         name:"",
         height:"",
@@ -15,16 +17,14 @@ const Form = ()=>{
         temperament:[],
         image:""
     })
-
     useEffect(()=>{
-        getTemperaments()
+        dispatch(getTemperaments())
         
     },[])
-
-    const getTemperaments = async ()=>{
-        const dbTemperaments = await axios.get("http://localhost:3001/temperament")
-        setTemperaments(dbTemperaments.data) 
-    }
+    
+    const temperaments = useSelector(state=>state.temperaments)
+    
+    
     const handlerChange =(event)=>{
         let name =event.target.name
         let value =event.target.value
@@ -55,14 +55,14 @@ const Form = ()=>{
             
             return alert("se deben completar todos los campos")
         }else{
-            const {name,heigh,weight,life_span,temperament,image} = dogData
+            const {name,height,weight,life_span,temperament,image} = dogData
         const response = await axios.post("http://localhost:3001/dogs/",{
             image:{
                 url:image
             },
             name,
             height:{
-                metric:heigh
+                metric:height
             },
             weight:{
                 metric:weight

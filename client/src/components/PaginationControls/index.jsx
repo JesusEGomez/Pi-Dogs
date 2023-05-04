@@ -19,7 +19,7 @@ const PaginationControls = ({arrayLength})=>{
     
 
     return(
-        <div>
+        <div >
       <button onClick={handlePreviousClick}>Anterior</button>
       <span>Página {currentPage} de {totalPages}</span>
       <button onClick={handleNextClick}>Siguiente</button>
