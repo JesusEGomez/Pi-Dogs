@@ -18,12 +18,33 @@ const Home = ({clickHandler})=>{
     
     const state = useSelector(state=>state)
     const {dogs,currentPage, itemsPerPage,temperaments} = state
+    
+    //*Filtro en base a la propiedad "id" de imagen
+    const filterByOrigin=(event)=>{
+        const filterName = event.target.value
+        // const dogsToSort= filteredDogs? [...filteredDogs] :[...dogs]
+        let newDogs=[]
+            if(filterName === "creados"){
+                newDogs = dogs.filter((dog)=>!dog.image.hasOwnProperty("id"))
+                setFilteredDogs(newDogs)
 
+            }else if(filterName === "api"){
+                newDogs = dogs.filter((dog)=>dog.image.hasOwnProperty("id"))
+                setFilteredDogs(newDogs)
+
+            }else{
+                
+                setFilteredDogs(dogs)
+            }
+        
+            
+        }
 
 
     const filterTempHandler =(event)=>{
-        let newDogs=[]
         const filter = event.target.value 
+        if(filter === "todos") return setFilteredDogs(dogs)
+        let newDogs=[]
         dogs.forEach((dog)=>{
             let temperament = []
             if(dog.temperament)temperament= dog.temperament.split(",")
@@ -37,7 +58,7 @@ const Home = ({clickHandler})=>{
     const sortByName=(event)=>{
         const orden = event.target.value
         console.log(orden)
-        let dogsToSort= filteredDogs? [...filteredDogs] : [...dogs]
+        const dogsToSort= filteredDogs? [...filteredDogs] : [...dogs]
         
         if(orden === "descendente"){
             dogsToSort.sort((a,b)=>{
@@ -57,7 +78,7 @@ const Home = ({clickHandler})=>{
         setFilteredDogs(dogsToSort)
 
     } 
-
+    //* Primero obtengo los pesos maximos de cada perro junto a su id de manera ordenada en un array, luego lo utilizo para comprar con la lista de todos los perros y poder ordenarlos
     const sortByWeight =(event)=>{
         const orden = event.target.value
         const dogsToSort= filteredDogs? [...filteredDogs] :[...dogs]
@@ -77,7 +98,8 @@ const Home = ({clickHandler})=>{
                     newDogs.push(dogsToSort.find((dog)=>dog.id === element.id))
                 })
                 setFilteredDogs(newDogs)
-        }else if(orden === "ascendente"){
+        }
+        else if(orden === "ascendente"){
                 const aux = dogsToSort.map((dog)=>{ 
                 const auxWeight= dog.weight.metric.split(" - ")
     
@@ -93,10 +115,9 @@ const Home = ({clickHandler})=>{
                 setFilteredDogs(newDogs)
         }
 
-        
-        console.log(newDogs)
-
     }
+        
+    
 
 
 
@@ -114,6 +135,7 @@ const Home = ({clickHandler})=>{
             sortByName={sortByName} 
             filterTempHandler={filterTempHandler}
             sortByWeight={sortByWeight}
+            filterByOrigin={filterByOrigin}
             />
             { 
                 <Cards

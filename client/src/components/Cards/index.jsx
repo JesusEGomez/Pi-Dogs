@@ -7,7 +7,7 @@ const Cards = (props)=>{
     const displayedDogs = dogs.slice(startIndex, endIndex);
     
     return(
-        <div>
+        <div className="cards-container">
             {displayedDogs.map((element)=>{
                 return <Card 
                 key={element.id} 

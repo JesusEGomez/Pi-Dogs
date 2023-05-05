@@ -1,4 +1,4 @@
-import { FILTER_TEMPERAMENT, GET_DOGS,GET_TEMPERAMENTS,SET_CURRENT_PAGE } from "./actions"
+import { GET_DOGS,GET_TEMPERAMENTS,SET_CURRENT_PAGE } from "./actions"
 const initialState = {
     dogs:[],
     currentPage:1,

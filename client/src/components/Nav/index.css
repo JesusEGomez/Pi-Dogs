@@ -1,5 +1,6 @@
 .navBar-container{
     display: flex;
     justify-content: center;
-    
+    height: 50px;
+    background-color: aqua;
 }
