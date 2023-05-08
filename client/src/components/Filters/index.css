@@ -1,6 +1,25 @@
-.filter-container{
+.principalFilter-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 10%;
-    margin: 5px;
-    background-color: bisque;
+    background-color: #906e45;
     width: 100%;
+    font-family: 'Lilita One', cursive;
+    text-transform: uppercase;
+    color:#eabe87;
+    
+}
+.filter-container{
+    display: flex;
+    align-items: center;
+}
+.orden-container{
+    display: flex;
+    align-items: center;
+    height: 0.5em;
+
+}
+.filter-title{
+    margin-right: 1em;
 }

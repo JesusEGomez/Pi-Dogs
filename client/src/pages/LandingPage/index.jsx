@@ -2,9 +2,12 @@ import "./index.css"
 import { Link } from "react-router-dom"
 const LandingPage = ()=>{
     return(
-        <div>
-            <h1>Esta es la LandingPage</h1>
-            <Link to="/home"><button>Go Home</button></Link>
+        <div className="principal-container">
+            <div className="landing-container">
+            <h1 className="title"> Wiki Puppies</h1>
+            <Link to="/home"><button className="home-button">Acceder</button></Link>
+            </div>
+            
         </div>
     )
     

@@ -13,17 +13,17 @@ const PaginationControls = ({arrayLength})=>{
 
       const handleNextClick = () => {
         if (currentPage < totalPages) {
-         dispatch(setCurrentPage(currentPage + 1)) 
+        dispatch(setCurrentPage(currentPage + 1)) 
         }
       };
     
 
     return(
-        <div >
-      <button onClick={handlePreviousClick}>Anterior</button>
-      <span>Página {currentPage} de {totalPages}</span>
-      <button onClick={handleNextClick}>Siguiente</button>
-    </div>
+      <div className="controls-container" >
+        <button onClick={handlePreviousClick}>Anterior</button>
+        <span>Página {currentPage} de {totalPages}</span>
+        <button onClick={handleNextClick}>Siguiente</button>
+      </div>
     )
 }
 export default PaginationControls

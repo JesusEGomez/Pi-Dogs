@@ -1,13 +1,26 @@
 import "./index.css"
 const Card = ({name,image,weight,temperament,clickHandler,id})=>{
     return(
-        <div className="card-container">
-            <img onClick={()=>clickHandler(id)} src={image} alt={name} className="dog-image" />
-            <h3>nombre: {name}</h3>
-            <h3>Peso: {weight}</h3>
-            <h3>Temperamento: {temperament}</h3>
-
+        
+    <main className="card-container">
+        <div className = "card">
+            <img className="dog-image" src={image} alt={name}/>
+            <div className="card-content">
+            <h2 className="dog-name">
+                {name}
+            </h2>
+            <p className="dog-description">
+                {`Peso: ${weight}Kg`} <br /> {`Temperamento: ${temperament}`}
+            </p>
+            <a  onClick={()=>clickHandler(id)} className="dog-button">
+                Find out more 
+                <span className="material-symbols-outlined">
+                ➡️
+                </span>
+            </a>
+            </div>
         </div>
+    </main>
     )
     
 }

@@ -4,8 +4,10 @@ import SearchBar from "../SearchBar"
 const Nav = ({onSearch})=>{
     return(
         <div className="navBar-container">
-            <Link to="/home"><button>Home</button></Link>
-            <Link to="/form"><button>Form</button></Link>
+            <div className="buttons-container">
+            <Link to="/home"><button className="link-buttons">Home</button></Link>
+            <Link to="/form"><button className="link-buttons">Form</button></Link>
+            </div>
             <SearchBar onSearch={onSearch} />
         </div>
     )

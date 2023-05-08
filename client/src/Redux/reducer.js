@@ -1,4 +1,4 @@
-import { GET_DOGS,GET_TEMPERAMENTS,SET_CURRENT_PAGE } from "./actions"
+import {RESET_CURRENT_PAGE, GET_DOGS,GET_TEMPERAMENTS,SET_CURRENT_PAGE } from "./actions"
 const initialState = {
     dogs:[],
     currentPage:1,
@@ -22,6 +22,11 @@ const rootReducer =(state=initialState,action)=>{
             return{
                 ...state,
                 temperaments:[...action.payload]
+            }
+        case RESET_CURRENT_PAGE:
+            return{
+                ...state,
+                currentPage:1
             }
         
     

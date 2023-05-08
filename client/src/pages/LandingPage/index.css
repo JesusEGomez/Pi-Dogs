@@ -1,1 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+.home-button {
+    border-radius: 1em;
+  }
 
+.title{
+    font-family: 'Lilita One', cursive;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    color:#493926 ;
+    text-shadow: 1px 5px 8px rgba(255, 255, 255, 1);
+}
+.principal-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../../img/Landing.png");
+
+}
+.landing-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px ;
+    min-height: 210px ;
+    border: 2px solid #eab471d2;
+    border-radius: 10%;
+    background-color: #eab471d2;
+    box-shadow: -4px 7px 21px -4px rgba(0,0,0,0.75);
+-webkit-box-shadow: -4px 7px 21px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -4px 7px 21px -4px rgba(0,0,0,0.75);
+    
+}

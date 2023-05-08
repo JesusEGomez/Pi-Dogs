@@ -9,9 +9,9 @@ const SearchBar = ({ onSearch }) => {
         )
     }
     return (
-        <div>
-            <input type='search' onChange={handleChange} name={name} value={name} />
-            <button className="searchBar-container-button" onClick={()=>onSearch(name)}>Buscar</button>
+        <div className="searchBar-container">
+            <input type='search' className="searchBar" onChange={handleChange} name={name} value={name} />
+            <button className="searchBar-button" onClick={()=>onSearch(name)}>Buscar</button>
         </div>
     )
 

@@ -1,1 +1,14 @@
+.searchBar-container{
+    display: flex;
+    align-items: center;
+}
+.searchBar{
+padding: 0.2em;
+width: 10em;
 
+}
+.searchBar-button{
+    margin-left: 0.5em;
+
+
+}

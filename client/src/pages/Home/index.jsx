@@ -2,13 +2,15 @@
 import { useEffect,useState} from "react"
 import "./index.css"
 import { useSelector, useDispatch } from "react-redux"
-import { getDogs,getTemperaments } from "../../Redux/actions"
+import { getDogs,getTemperaments,setCurrentPage, resetCurrentPage } from "../../Redux/actions"
 import { Cards,Filters } from "../../components"
 import PaginationControls from "../../components/PaginationControls"
+
 
 const Home = ({clickHandler})=>{
     const dispatch = useDispatch()
     const [filteredDogs, setFilteredDogs] = useState(null)
+
 
     useEffect(()=>{
         dispatch(getDogs())
@@ -23,6 +25,7 @@ const Home = ({clickHandler})=>{
     const filterByOrigin=(event)=>{
         const filterName = event.target.value
         // const dogsToSort= filteredDogs? [...filteredDogs] :[...dogs]
+            dispatch(resetCurrentPage())
         let newDogs=[]
             if(filterName === "creados"){
                 newDogs = dogs.filter((dog)=>!dog.image.hasOwnProperty("id"))
@@ -45,6 +48,7 @@ const Home = ({clickHandler})=>{
         const filter = event.target.value 
         if(filter === "todos") return setFilteredDogs(dogs)
         let newDogs=[]
+        dispatch(resetCurrentPage())
         dogs.forEach((dog)=>{
             let temperament = []
             if(dog.temperament)temperament= dog.temperament.split(",")
@@ -59,6 +63,7 @@ const Home = ({clickHandler})=>{
         const orden = event.target.value
         console.log(orden)
         const dogsToSort= filteredDogs? [...filteredDogs] : [...dogs]
+        dispatch(resetCurrentPage())
         
         if(orden === "descendente"){
             dogsToSort.sort((a,b)=>{
@@ -83,7 +88,7 @@ const Home = ({clickHandler})=>{
         const orden = event.target.value
         const dogsToSort= filteredDogs? [...filteredDogs] :[...dogs]
         const newDogs=[]
-        
+        dispatch(resetCurrentPage())
         if(orden === "descendente"){
             const aux = dogsToSort.map((dog)=>{ 
                 const auxWeight= dog.weight.metric.split(" - ")
@@ -146,7 +151,7 @@ const Home = ({clickHandler})=>{
                     
             }
             
-            <PaginationControls className="controls-container" arrayLength={arrayLength} />
+            <PaginationControls className="controls-container"  arrayLength={arrayLength} />
         </div>
     )
     
