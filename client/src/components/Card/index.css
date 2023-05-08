@@ -1,3 +1,4 @@
+
 .dog-image {
     position: absolute;
     object-fit: fill;
@@ -41,6 +42,12 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: normal;
     text-transform: uppercase;
+    font-family: 'Lilita One', cursive;
+    font-size: 1.6rem;
+    /* text-transform: uppercase; */
+    color:#493926 ;
+    text-shadow: 1px 5px 8px rgba(255, 255, 255, 1);
+
 }
 
 .card:hover .dog-name {
@@ -49,38 +56,38 @@
 }
 
 .dog-description{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.448);
+    font-size: 0.8rem;
+    width: 90%;
     position: absolute;
     opacity: 0;
-    max-width: 80%;
     transition: opacity .3s ease-out;
-    inset: auto auto 10px 30px;
+    inset: auto auto 10px 20px;
+    font-family: 'Lilita One', cursive;
+    font-size:0.8rem;
+    text-transform: uppercase;
+    color:#493926 ;
+    text-shadow: 1px 5px 8px rgba(255, 255, 255, 1);
+
 }
 
 .card:hover .dog-description{
     opacity: 1;
     transition: opacity .5s .1s ease-in;
-    inset: auto auto 40px 20px;
+    inset: auto auto 20px 30px;
 }
 
-.dog-button {
-    position: absolute;
-    opacity: 0;
-    max-width: 80%;
-    transition: opacity .3s ease-out;
-    inset: auto auto 5px 5px;
-}
+
 
 .card:hover .dog-button {
     opacity: 1;
     transition: opacity .5s .1s ease-in;
-    inset: auto auto 20px 10px;
+    inset: auto auto 10px 5px;
 }
 
 .dog-image:hover {
     transition: opacity .3s ease-in;
     opacity: 1;
-}
-
-.material-symbols-outlined {
-    vertical-align: middle;
 }

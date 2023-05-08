@@ -2,7 +2,7 @@ import "./index.css"
 import axios from "axios"
 import { useState,useEffect } from "react"
 import Validation from "../../validation"
-import { getTemperaments } from "../../Redux/actions"
+import { getTemperaments, } from "../../Redux/actions"
 import { useDispatch,useSelector } from "react-redux"
 
 
@@ -82,28 +82,28 @@ const Form = ()=>{
     
     
     return(
-        <div >
-            <h1>Esto es el Form</h1>
-            <form onSubmit={handlerSubmit} className="form-container">
+        <div className="form-container" >
+            <form onSubmit={handlerSubmit} className="form">
+                <h3 className="heading">Crea tu perro</h3>
                 <label name="name">Nombre:</label>
                 <input onChange={handlerChange} autoComplete="off" type="text" name="name" />
-                {errors.name? <span>{errors.name}</span>:null}
+                {errors.name? <span className="error">{errors.name}</span>:null}
 
                 <label name="image">Imagen:</label>
                 <input onChange={handlerChange} autoComplete="off" type="text" name="image" />
-                {errors.image? <span>{errors.image}</span>:null}
+                {errors.image? <span className="error">{errors.image}</span>:null}
 
                 <label  name="weight">Peso mínimo-máximo(Kg):</label>
                 <input onChange={handlerChange} placeholder="ejemplo: 25-30" type="text" name="weight" />
-                {errors.weight? <span>{errors.weight}</span>:null}
+                {errors.weight? <span className="error">{errors.weight}</span>:null}
 
                 <label autoComplete="off" name="height">Altura minima-máxima(cm):</label>
                 <input onChange={handlerChange} placeholder="ejemplo: 25-30" type="text" name="height" />
-                {errors.height? <span>{errors.height}</span>:null}
+                {errors.height? <span className="error">{errors.height}</span>:null}
 
                 <label autoComplete="off" name="life_span">Esperanza de vida minima-maxima(años)</label>
                 <input placeholder="ejemplo: 25-30" onChange={handlerChange} type="text" name="life_span" />
-                {errors.life_span? <span>{errors.life_span}</span>:null}
+                {errors.life_span? <span className="error">{errors.life_span}</span>:null}
 
                 <label autoComplete="off" name="temperament">Temperamento:</label>
                 <select onChange={handlerChange} name="temperament" >
@@ -113,11 +113,14 @@ const Form = ()=>{
                     </option>
                 })}
                 </select>
+                <div className="temperament-list">
                 {dogData.temperament.map((element)=>{
                     let nameTemperament = temperaments.find((temperament)=>temperament.id === element)
-                    return <span key={element}>{nameTemperament.name}</span>
+                    return <p  key={element}>{nameTemperament.name}</p>
                 })}
-                <button type="submit">Crear Perro</button>
+                </div>
+                
+                <button className="btn" type="submit">Crear</button>
             </form>
         </div>
     )

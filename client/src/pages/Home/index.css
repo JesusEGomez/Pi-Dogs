@@ -16,6 +16,19 @@
     align-items: center;
     background-color: #402e32;
     width: 100%;
-    height: 55px;
+    height: 52px;
+        
+
+    
+}
+.control-button{
+    font-size: 0.8rem;
+    margin-left: 0px;
+    }
+.pagination-number{
+    font-family: 'Lilita One', cursive;
+    text-transform: uppercase;
+    color:#eabe87 ;
+    margin: 1rem;
     
 }

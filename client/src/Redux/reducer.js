@@ -3,7 +3,7 @@ const initialState = {
     dogs:[],
     currentPage:1,
     itemsPerPage:8,
-    temperaments:[]
+    temperaments:[],
 }
 
 const rootReducer =(state=initialState,action)=>{
@@ -11,7 +11,7 @@ const rootReducer =(state=initialState,action)=>{
         case GET_DOGS:
             return{
                 ...state,
-                dogs:[...action.payload]
+                dogs:[...action.payload],
             }
         case SET_CURRENT_PAGE:
             return{

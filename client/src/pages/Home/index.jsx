@@ -2,7 +2,7 @@
 import { useEffect,useState} from "react"
 import "./index.css"
 import { useSelector, useDispatch } from "react-redux"
-import { getDogs,getTemperaments,setCurrentPage, resetCurrentPage } from "../../Redux/actions"
+import { getDogs,getTemperaments, resetCurrentPage } from "../../Redux/actions"
 import { Cards,Filters } from "../../components"
 import PaginationControls from "../../components/PaginationControls"
 
@@ -10,7 +10,9 @@ import PaginationControls from "../../components/PaginationControls"
 const Home = ({clickHandler})=>{
     const dispatch = useDispatch()
     const [filteredDogs, setFilteredDogs] = useState(null)
-
+    
+    const state = useSelector(state=>state)
+    const {dogs,currentPage, itemsPerPage,temperaments,Loading} = state
 
     useEffect(()=>{
         dispatch(getDogs())
@@ -18,13 +20,10 @@ const Home = ({clickHandler})=>{
         
     },[])
     
-    const state = useSelector(state=>state)
-    const {dogs,currentPage, itemsPerPage,temperaments} = state
     
     //*Filtro en base a la propiedad "id" de imagen
     const filterByOrigin=(event)=>{
         const filterName = event.target.value
-        // const dogsToSort= filteredDogs? [...filteredDogs] :[...dogs]
             dispatch(resetCurrentPage())
         let newDogs=[]
             if(filterName === "creados"){
@@ -129,8 +128,6 @@ const Home = ({clickHandler})=>{
     const dogsToRender = filteredDogs || dogs
     let arrayLength = dogsToRender.length
     
-    
-
 
 
     return(
