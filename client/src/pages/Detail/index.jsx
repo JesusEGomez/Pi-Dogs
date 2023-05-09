@@ -16,7 +16,7 @@ const Detail = () => {
     useEffect(getDog, [])
 
     if (!selectedDog) {
-        return <div>Loading...</div>
+        return <div className="loading">Cargando...</div>
     }
 
     const { name, life_span, height, weight, image, temperament } = selectedDog

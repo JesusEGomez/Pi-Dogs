@@ -34,3 +34,17 @@
     color:#493926 ;
     text-shadow: 1px 5px 8px rgba(255, 255, 255, 1);
 }
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffe4c4;
+    color: #906e45;
+    letter-spacing: 2em;
+    padding-top: 1em;
+    font-size: 2em;
+    box-shadow: 0 0 0 4px #EADDCA, 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+    font-family: 'Lilita One', cursive;
+    text-transform: uppercase;
+}
