@@ -50,7 +50,7 @@ const Form = ()=>{
     const handlerSubmit = async(event)=>{
         event.preventDefault()
         
-        if(Object.keys(errors) === 0 ){
+        if(Object.keys(errors).length !== 0 ){
             console.log(errors)
             
             return alert("se deben completar todos los campos")

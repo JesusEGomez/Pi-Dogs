@@ -12,7 +12,7 @@ const Home = ({clickHandler})=>{
     const [filteredDogs, setFilteredDogs] = useState(null)
     
     const state = useSelector(state=>state)
-    const {dogs,currentPage, itemsPerPage,temperaments,Loading} = state
+    const {dogs,currentPage, itemsPerPage,temperaments} = state
 
     useEffect(()=>{
         dispatch(getDogs())
@@ -60,8 +60,9 @@ const Home = ({clickHandler})=>{
 
     const sortByName=(event)=>{
         const orden = event.target.value
-        console.log(orden)
+        console.log(dogs)
         const dogsToSort= filteredDogs? [...filteredDogs] : [...dogs]
+        console.log(dogsToSort)
         dispatch(resetCurrentPage())
         
         if(orden === "descendente"){
@@ -87,6 +88,7 @@ const Home = ({clickHandler})=>{
         const orden = event.target.value
         const dogsToSort= filteredDogs? [...filteredDogs] :[...dogs]
         const newDogs=[]
+        console.log(dogsToSort)
         dispatch(resetCurrentPage())
         if(orden === "descendente"){
             const aux = dogsToSort.map((dog)=>{ 

@@ -1,7 +1,7 @@
-const regExNombre = /^[a-zA-Z]{1,15}$/
+const regExNombre = /^[A-Z][a-z]{0,14}$/
 const regExFormato = /^\d{1,3}-\d{1,3}$/
 const regExLifeSpan= /^\d{1,2}-\d{1,2}$/
-const regExImagen = /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i
+const regExImagen = /^https?:\/\/[^\s/$.?#].[^\s]*\.(gif|jpe?g|tiff?|png|webp|bmp)$/i
 
 const Validation =({name,height,weight,life_span,image})=>{
     const errors={}
