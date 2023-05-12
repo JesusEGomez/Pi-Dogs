@@ -45,9 +45,9 @@ const Home = ({clickHandler})=>{
 
     const filterTempHandler =(event)=>{
         const filter = event.target.value 
-        if(filter === "todos") return setFilteredDogs(dogs)
-        let newDogs=[]
         dispatch(resetCurrentPage())
+        let newDogs=[]
+        if(filter === "todos") return setFilteredDogs(dogs)
         dogs.forEach((dog)=>{
             let temperament = []
             if(dog.temperament)temperament= dog.temperament.split(",")
@@ -59,11 +59,10 @@ const Home = ({clickHandler})=>{
 
 
     const sortByName=(event)=>{
-        const orden = event.target.value
-        console.log(dogs)
-        const dogsToSort= filteredDogs? [...filteredDogs] : [...dogs]
-        console.log(dogsToSort)
+
         dispatch(resetCurrentPage())
+        const orden = event.target.value
+        const dogsToSort= filteredDogs? [...filteredDogs] : [...dogs]
         
         if(orden === "descendente"){
             dogsToSort.sort((a,b)=>{
@@ -85,11 +84,12 @@ const Home = ({clickHandler})=>{
     } 
     //* Primero obtengo los pesos maximos de cada perro junto a su id de manera ordenada en un array, luego lo utilizo para comprar con la lista de todos los perros y poder ordenarlos
     const sortByWeight =(event)=>{
+
+        dispatch(resetCurrentPage())
         const orden = event.target.value
         const dogsToSort= filteredDogs? [...filteredDogs] :[...dogs]
         const newDogs=[]
-        console.log(dogsToSort)
-        dispatch(resetCurrentPage())
+        
         if(orden === "descendente"){
             const aux = dogsToSort.map((dog)=>{ 
                 const auxWeight= dog.weight.metric.split(" - ")

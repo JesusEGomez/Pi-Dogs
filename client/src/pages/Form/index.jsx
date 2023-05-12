@@ -35,6 +35,11 @@ const Form = ()=>{
                 ...dogData,
                 [name]:options
             })
+            setErrors(Validation({
+                ...dogData,
+                [name]:value
+            }))
+
         }else{
             setDogData({
                 ...dogData,
@@ -85,7 +90,7 @@ const Form = ()=>{
         <div className="form-container" >
             <form onSubmit={handlerSubmit} className="form">
                 <h3 className="heading">Crea tu perro</h3>
-                <label name="name">Nombre:</label>
+                <label name="name">Nombre De Raza:</label>
                 <input onChange={handlerChange} autoComplete="off" type="text" name="name" />
                 {errors.name? <span className="error">{errors.name}</span>:null}
 
@@ -94,11 +99,11 @@ const Form = ()=>{
                 {errors.image? <span className="error">{errors.image}</span>:null}
 
                 <label  name="weight">Peso mínimo-máximo(Kg):</label>
-                <input onChange={handlerChange} placeholder="ejemplo: 25-30" type="text" name="weight" />
+                <input onChange={handlerChange} placeholder="ejemplo: 25 - 30" type="text" name="weight" />
                 {errors.weight? <span className="error">{errors.weight}</span>:null}
 
                 <label autoComplete="off" name="height">Altura minima-máxima(cm):</label>
-                <input onChange={handlerChange} placeholder="ejemplo: 25-30" type="text" name="height" />
+                <input onChange={handlerChange} placeholder="ejemplo: 25 - 30" type="text" name="height" />
                 {errors.height? <span className="error">{errors.height}</span>:null}
 
                 <label autoComplete="off" name="life_span">Esperanza de vida minima-maxima(años)</label>

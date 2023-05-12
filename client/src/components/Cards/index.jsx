@@ -2,7 +2,7 @@ import "./index.css"
 import Card from "../Card"
 const Cards = (props)=>{
     const {dogs,itemsPerPage,currentPage,clickHandler} = props
-    const startIndex = (currentPage - 1) * itemsPerPage;
+    const startIndex = (currentPage -1  ) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const displayedDogs = dogs.slice(startIndex, endIndex);
     
