@@ -29,16 +29,24 @@ const Form = ()=>{
         let name =event.target.name
         let value =event.target.value
         if(name === "temperament"){
-            let options = [...dogData.temperament]
-            options.push(value)
+            const allTemperaments = [...dogData.temperament]
+
+            if(!allTemperaments.find((temp)=> temp === value)){
+            allTemperaments.push(value)
+
             setDogData({
                 ...dogData,
-                [name]:options
+                [name]:allTemperaments
             })
+
             setErrors(Validation({
                 ...dogData,
                 [name]:value
             }))
+            
+        }else{
+            alert("No es posible repetir los temperamentos")
+        }
 
         }else{
             setDogData({
@@ -89,9 +97,10 @@ const Form = ()=>{
     return(
         <div className="form-container" >
             <form onSubmit={handlerSubmit} className="form">
-                <h3 className="heading">Crea tu perro</h3>
+                <h3 className="heading">Crea tu perro </h3>
                 <label name="name">Nombre De Raza:</label>
-                <input onChange={handlerChange} autoComplete="off" type="text" name="name" />
+                <span className="info">El nombre debe comenzar con mayúscula</span>
+                <input  onChange={handlerChange} autoComplete="off" type="text" name="name" />
                 {errors.name? <span className="error">{errors.name}</span>:null}
 
                 <label name="image">Imagen:</label>
@@ -106,12 +115,12 @@ const Form = ()=>{
                 <input onChange={handlerChange} placeholder="ejemplo: 25 - 30" type="text" name="height" />
                 {errors.height? <span className="error">{errors.height}</span>:null}
 
-                <label autoComplete="off" name="life_span">Esperanza de vida minima-maxima(años)</label>
-                <input placeholder="ejemplo: 25-30" onChange={handlerChange} type="text" name="life_span" />
+                <label autoComplete="off" name="life_span">Esperanza de vida minima-maxima(años): </label>
+                <input placeholder="ejemplo: 25 - 30" onChange={handlerChange} type="text" name="life_span" />
                 {errors.life_span? <span className="error">{errors.life_span}</span>:null}
 
-                <label autoComplete="off" name="temperament">Temperamento:</label>
-                <select onChange={handlerChange} name="temperament" >
+                <label autoComplete="off" name="temperament">Temperamento:</label> 
+                <select multiple className="custom-select" onChange={handlerChange} name="temperament" >
                 {temperaments.map((element)=>{
                     return <option key={element.id} value={element.id}>
                         {element.name}

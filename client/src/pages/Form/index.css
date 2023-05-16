@@ -64,3 +64,35 @@
     box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5);
 
 }
+.custom-select {
+    width: 200px;
+    height: 70px;
+    color: #906e45;
+    border: 1px solid #DAA06D;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  
+  .custom-select option {
+    text-align: center;
+    font-family: 'Lilita One', cursive;
+    padding: 4px;
+    text-transform: uppercase;
+  }
+.custom-select:focus{
+    outline: none;
+}
+.info{
+    text-transform: lowercase;
+    padding: 1px;
+    margin-left: 5px;
+    font-size: 1em;
+    color:#906e45a2 ;
+    
+
+}
+
+

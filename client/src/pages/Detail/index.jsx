@@ -13,7 +13,7 @@ const Detail = () => {
         setSelectedDog(dog.data)
     }
 
-    useEffect(getDog, [])
+    useEffect(getDog, [id])
 
     if (!selectedDog) {
         return <div className="loading">Cargando...</div>

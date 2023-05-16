@@ -5,7 +5,7 @@ const getAllTemperaments = require("../controllers/getAllTemperaments")
 const temperamentRouter = Router();
 
 temperamentRouter.get("/", async(req,res)=>{
-    console.log("estamos en termperaments")
+    
     try {
         const allTemperaments = await getAllTemperaments()
         res.status(200).json(allTemperaments)

@@ -1,7 +1,10 @@
 import "./index.css"
 import { Link } from "react-router-dom"
 import SearchBar from "../SearchBar"
+
+
 const Nav = ({onSearch})=>{
+
     return(
         <div className="navBar-container">
             <div className="buttons-container">

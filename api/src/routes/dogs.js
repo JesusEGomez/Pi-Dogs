@@ -4,6 +4,20 @@ const getDogByName = require("../controllers/getDogByName")
 const getDogById = require("../controllers/getDogById")
 const createDog = require("../controllers/createDog")
 
+const validateTemperamentMiddleware = (req,res, next)=>{
+    const { temperament } = req.body;
+
+    const uniqueTemperaments = temperament.filter((item,index,array)=>{
+        return array.findIndex((elemento)=> elemento.name === item.name) === index
+        })
+
+    if(uniqueTemperaments.length !== temperament.length){
+        return res.status(400).json({ error: "los temperamentos deben ser únicos" })
+    }
+
+    next()
+}
+
 
 const dogsRouter = Router();
 
@@ -37,7 +51,7 @@ dogsRouter.get("/", async(req,res)=>{
     
 })
 
-dogsRouter.post("/", async(req,res)=>{
+dogsRouter.post("/",validateTemperamentMiddleware, async(req,res)=>{
     const {image,name, height,weight,life_span,temperament} = req.body
     try {
         const newDog = await createDog(image,name,height,weight,life_span,temperament) 
