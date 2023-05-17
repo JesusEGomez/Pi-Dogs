@@ -13,7 +13,7 @@ function App() {
   const onSearch = async (name)=>{
     if(!name) return alert("Debes escribir un nombre")
     try {
-      const dogFound = await axios.get(`http://localhost:3001/dogs/?name=${name}`)
+      const dogFound = await axios.get(`https://pi-dogs-production-f196.up.railway.app/dogs/?name=${name}`)
       const dog = dogFound.data
       history.push(`/detail/${dog.id}`)
     } catch (error) {

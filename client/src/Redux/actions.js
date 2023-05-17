@@ -5,7 +5,7 @@ export const RESET_CURRENT_PAGE="RESET_CURRENT_PAGE"
 export const GET_TEMPERAMENTS="GET_TEMPERAMENTS"
 
 export const getDogs = ()=>{
-    const endpoint = "http://localhost:3001/dogs/"
+    const endpoint = "https://pi-dogs-production-f196.up.railway.app/dogs/"
     return async (dispatch)=>{
         const response = await axios.get(endpoint)
         return dispatch({
@@ -16,7 +16,7 @@ export const getDogs = ()=>{
     }
 }
 export const getTemperaments = ()=>{
-    const endpoint = "http://localhost:3001/temperament"
+    const endpoint = "https://pi-dogs-production-f196.up.railway.app/temperament"
     return async (dispatch)=>{
         const response = await axios.get(endpoint)
         return dispatch({
