@@ -1,6 +1,6 @@
 const axios = require("axios")
 const{ Dog,Temperament } = require("../db")
-const { raw } = require("body-parser")
+
 
 const getAllDogs = async()=>{
     const apiDogs = await axios.get("https://api.thedogapi.com/v1/breeds")
