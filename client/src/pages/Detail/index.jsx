@@ -9,7 +9,7 @@ const Detail = () => {
     const [selectedDog, setSelectedDog] = useState(null)
 
     const getDog = async () => {
-        const dog = await axios.get(`http://localhost:3001/dogs/${id}`)
+        const dog = await axios.get(`https://pi-dogs-ejvz9pcr2-jesusegomez.vercel.app/dogs/${id}`)
         setSelectedDog(dog.data)
     }
 

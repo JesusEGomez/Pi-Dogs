@@ -8,6 +8,7 @@ const getAllTemperaments = async ()=>{
         attributes:["name","id"],
         raw:true
     })
+    
     let temperaments = []
     const splitTemperaments = []
     //me traigo a un array los temperamentos y transformo los strings en arrays para luego poder acceder a cada uno de los adjetivos
